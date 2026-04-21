@@ -1,0 +1,12 @@
+============================================================
+Distributed Neural Network Training with MPI
+============================================================
+MPI Configuration: 4 processes
+Sample size: Full dataset
+Rank 0: Loading data from data/nytaxi2022.csv...
+Rank 0: Loading FULL dataset...
+/Users/zengjihong/Desktop/NUS/DSA5208/Project 1/neural_network_mpi/src/neural_network_mpi.py:286: DtypeWarning: Columns (6) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(file_path, low_memory=True)
+Rank 0: Loaded 39656098 rows
+/Users/zengjihong/Desktop/NUS/DSA5208/Project 1/neural_network_mpi/src/neural_network_mpi.py:294: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  df['pickup_datetime'] = pd.to_datetime(df['tpep_pickup_datetime'], errors='coerce')

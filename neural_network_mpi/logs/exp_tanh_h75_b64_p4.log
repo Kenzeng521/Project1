@@ -1,0 +1,53 @@
+============================================================
+Distributed Neural Network Training with MPI
+============================================================
+MPI Configuration: 4 processes
+Loading data from data/nytaxi2022.csv...
+Loaded 100000 rows
+/Users/zengjihong/Desktop/NUS/DSA5208/Project 1/neural_network_mpi/src/neural_network_mpi.py:251: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  df['pickup_datetime'] = pd.to_datetime(df['tpep_pickup_datetime'], errors='coerce')
+/Users/zengjihong/Desktop/NUS/DSA5208/Project 1/neural_network_mpi/src/neural_network_mpi.py:252: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  df['dropoff_datetime'] = pd.to_datetime(df['tpep_dropoff_datetime'], errors='coerce')
+Using features: ['trip_duration', 'pickup_hour', 'passenger_count', 'trip_distance', 'RatecodeID', 'PULocationID', 'DOLocationID', 'payment_type', 'extra']
+After cleaning: 86464 rows
+Train set: (60524, 9), Test set: (25940, 9)
+Process 0: Distributed 60524 train and 25940 test samples to 4 processes
+Process 0: Initialized weights - w1: (9, 75), w2: (75, 1)
+
+Starting training:
+  Epochs: 50
+  Batch size: 64
+  Learning rate: 0.005
+  Hidden size: 75
+  Activation: tanh
+  Processes: 4
+Epoch   1/50: Loss=1.403666, Train RMSE=1.564209, Test RMSE=1.573072
+Epoch   6/50: Loss=1.234154, Train RMSE=1.551177, Test RMSE=1.559938
+Epoch  11/50: Loss=1.339945, Train RMSE=1.539531, Test RMSE=1.548201
+Epoch  16/50: Loss=1.244407, Train RMSE=1.526938, Test RMSE=1.535506
+Epoch  21/50: Loss=1.164793, Train RMSE=1.514110, Test RMSE=1.522588
+Epoch  26/50: Loss=1.013246, Train RMSE=1.501810, Test RMSE=1.510188
+Epoch  31/50: Loss=1.291234, Train RMSE=1.489271, Test RMSE=1.497555
+Epoch  36/50: Loss=0.968423, Train RMSE=1.479389, Test RMSE=1.487592
+Epoch  41/50: Loss=1.181893, Train RMSE=1.467701, Test RMSE=1.475814
+Epoch  46/50: Loss=0.947266, Train RMSE=1.456699, Test RMSE=1.464736
+Epoch  50/50: Loss=0.969764, Train RMSE=1.447976, Test RMSE=1.455953
+
+Training completed in 7.02 seconds
+
+============================================================
+TRAINING RESULTS
+============================================================
+Configuration:
+  Activation: tanh
+  Hidden size: 75
+  Batch size: 64
+  Learning rate: 0.005
+  Processes: 4
+
+Performance:
+  Train RMSE: 1.447976
+  Test RMSE: 1.455953
+  Training time: 7.02 seconds
+
+Results saved to: results/result_tanh_h75_b64_p4_20250916_100327.json

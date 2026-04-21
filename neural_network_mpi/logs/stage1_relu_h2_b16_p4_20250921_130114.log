@@ -1,0 +1,69 @@
+============================================================
+Distributed Neural Network Training with MPI
+============================================================
+MPI Configuration: 4 processes
+Sample size: Full dataset
+Rank 0: Loading data from data/nytaxi2022.csv...
+Rank 0: Loading FULL dataset...
+/Users/zengjihong/Desktop/NUS/DSA5208/Project 1/neural_network_mpi/src/neural_network_mpi.py:286: DtypeWarning: Columns (6) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(file_path, low_memory=True)
+Rank 0: Loaded 39656098 rows
+/Users/zengjihong/Desktop/NUS/DSA5208/Project 1/neural_network_mpi/src/neural_network_mpi.py:294: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  df['pickup_datetime'] = pd.to_datetime(df['tpep_pickup_datetime'], errors='coerce')
+/Users/zengjihong/Desktop/NUS/DSA5208/Project 1/neural_network_mpi/src/neural_network_mpi.py:295: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  df['dropoff_datetime'] = pd.to_datetime(df['tpep_dropoff_datetime'], errors='coerce')
+Rank 0: After dropping NA: 38287795 rows
+Rank 0: After cleaning: 38222321 rows
+Rank 0: Train set: (26755624, 9), Test set: (11466697, 9)
+Rank 0: Distributing 26755624 training and 11466697 test samples to 4 processes
+Rank 0: Process 0 will get 6688906 training samples
+Rank 0: Process 1 will get 6688906 training samples
+Rank 0: Process 2 will get 6688906 training samples
+Rank 0: Process 3 will get 6688906 training samples
+Process 1: Received 6688906 training samples and 2866674 test samples
+Process 2: Received 6688906 training samples and 2866674 test samples
+Process 0: Received 6688906 training samples and 2866675 test samples
+Process 3: Received 6688906 training samples and 2866674 test samples
+Process 0: Initialized weights - w1: (9, 2), w2: (2, 1)
+
+Starting training:
+  Epochs: 50
+  Batch size: 16
+  Learning rate: 0.005
+  Hidden size: 2
+  Activation: relu
+  Processes: 4
+  Total training samples: 26755624
+  Total test samples: 11466697
+  Local training samples per process: 6688906
+Epoch   1/50: Loss=1.255737, Train RMSE=1.899984, Test RMSE=2.904857
+Epoch   6/50: Loss=1.285359, Train RMSE=1.861066, Test RMSE=2.875853
+Epoch  11/50: Loss=1.413215, Train RMSE=1.837755, Test RMSE=2.858338
+Epoch  16/50: Loss=1.795504, Train RMSE=1.806517, Test RMSE=2.835073
+Epoch  21/50: Loss=0.956435, Train RMSE=1.768547, Test RMSE=2.807016
+Epoch  26/50: Loss=0.912403, Train RMSE=1.740626, Test RMSE=2.786723
+Epoch  31/50: Loss=0.766242, Train RMSE=1.723520, Test RMSE=2.774426
+Epoch  36/50: Loss=0.575973, Train RMSE=1.695362, Test RMSE=2.753588
+Epoch  41/50: Loss=1.193994, Train RMSE=1.667579, Test RMSE=2.733544
+Epoch  46/50: Loss=1.229955, Train RMSE=1.649358, Test RMSE=2.720548
+Epoch  50/50: Loss=0.782958, Train RMSE=1.626218, Test RMSE=2.704206
+
+Training completed in 176.04 seconds
+
+============================================================
+TRAINING RESULTS
+============================================================
+Configuration:
+  Activation: relu
+  Hidden size: 2
+  Batch size: 16
+  Learning rate: 0.005
+  Processes: 4
+  Sample size: Full dataset
+
+Performance:
+  Train RMSE: 1.626218
+  Test RMSE: 2.704206
+  Training time: 176.04 seconds
+
+Results saved to: results/result_relu_h2_b16_p4_20250921_135102.json

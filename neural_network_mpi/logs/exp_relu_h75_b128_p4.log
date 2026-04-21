@@ -1,0 +1,80 @@
+============================================================
+Distributed Neural Network Training with MPI
+============================================================
+MPI Configuration: 4 processes
+Loading data from data/nytaxi2022.csv...
+/Users/zengjihong/Desktop/NUS/DSA5208/Project 1/neural_network_mpi/src/neural_network_mpi.py:273: DtypeWarning: Columns (6) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(file_path)
+Loaded 39656098 rows
+/Users/zengjihong/Desktop/NUS/DSA5208/Project 1/neural_network_mpi/src/neural_network_mpi.py:251: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  df['pickup_datetime'] = pd.to_datetime(df['tpep_pickup_datetime'], errors='coerce')
+/Users/zengjihong/Desktop/NUS/DSA5208/Project 1/neural_network_mpi/src/neural_network_mpi.py:252: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  df['dropoff_datetime'] = pd.to_datetime(df['tpep_dropoff_datetime'], errors='coerce')
+Using features: ['trip_duration', 'pickup_hour', 'passenger_count', 'trip_distance', 'RatecodeID', 'PULocationID', 'DOLocationID', 'payment_type', 'extra']
+After cleaning: 33650193 rows
+Train set: (23555135, 9), Test set: (10095058, 9)
+Process 0: Distributed 23555135 train and 10095058 test samples to 4 processes
+Process 0: Initialized weights - w1: (9, 75), w2: (75, 1)
+
+Starting training:
+  Epochs: 50
+  Batch size: 128
+  Learning rate: 0.005
+  Hidden size: 75
+  Activation: relu
+  Processes: 4
+Epoch   1/50: Loss=1.326393, Train RMSE=1.771736, Test RMSE=1.783758
+Epoch   6/50: Loss=1.015954, Train RMSE=1.762125, Test RMSE=1.773652
+Epoch  11/50: Loss=1.890262, Train RMSE=1.751046, Test RMSE=1.762025
+Epoch  16/50: Loss=1.558910, Train RMSE=1.741809, Test RMSE=1.752387
+Epoch  21/50: Loss=1.423457, Train RMSE=1.732422, Test RMSE=1.742512
+Epoch  26/50: Loss=1.002383, Train RMSE=1.723622, Test RMSE=1.733294
+Epoch  31/50: Loss=1.784650, Train RMSE=1.713883, Test RMSE=1.723104
+Epoch  36/50: Loss=1.446179, Train RMSE=1.703862, Test RMSE=1.712611
+Epoch  41/50: Loss=1.666560, Train RMSE=1.692812, Test RMSE=1.701038
+Epoch  46/50: Loss=1.415044, Train RMSE=1.684959, Test RMSE=1.692821
+Epoch  50/50: Loss=1.125061, Train RMSE=1.677477, Test RMSE=1.685002
+
+Training completed in 7044.25 seconds
+
+============================================================
+TRAINING RESULTS
+============================================================
+Configuration:
+  Activation: relu
+  Hidden size: 75
+  Batch size: 128
+  Learning rate: 0.005
+  Processes: 4
+
+Performance:
+  Train RMSE: 1.677477
+  Test RMSE: 1.685002
+  Training time: 7044.25 seconds
+
+Results saved to: results/result_relu_h75_b128_p4_20250916_140303.json
+--------------------------------------------------------------------------
+prterun has exited due to process rank 3 with PID 0 on node cengjihongdeMacBook-Air exiting
+improperly. There are three reasons this could occur:
+
+1. this process did not call "init" before exiting, but others in the
+job did. This can cause a job to hang indefinitely while it waits for
+all processes to call "init". By rule, if one process calls "init",
+then ALL processes must call "init" prior to termination.
+
+2. this process called "init", but exited without calling "finalize".
+By rule, all processes that call "init" MUST call "finalize" prior to
+exiting or it will be considered an "abnormal termination"
+
+3. this process called "MPI_Abort" or "prte_abort" and the mca
+parameter prte_create_session_dirs is set to false. In this case, the
+run-time cannot detect that the abort call was an abnormal
+termination. Hence, the only error message you will receive is this
+one.
+
+This may have caused other processes in the application to be
+terminated by signals sent by prterun (as reported here).
+
+You can avoid this message by specifying -quiet on the prterun command
+line.
+--------------------------------------------------------------------------

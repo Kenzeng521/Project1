@@ -1,0 +1,7 @@
+============================================================
+Distributed Neural Network Training with MPI
+============================================================
+MPI Configuration: 2 processes
+Sample size: Full dataset
+Rank 0: Loading data from data/nytaxi2022.csv...
+Rank 0: Loading FULL dataset...

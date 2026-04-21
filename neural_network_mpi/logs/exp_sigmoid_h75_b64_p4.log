@@ -1,0 +1,53 @@
+============================================================
+Distributed Neural Network Training with MPI
+============================================================
+MPI Configuration: 4 processes
+Loading data from data/nytaxi2022.csv...
+Loaded 100000 rows
+/Users/zengjihong/Desktop/NUS/DSA5208/Project 1/neural_network_mpi/src/neural_network_mpi.py:251: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  df['pickup_datetime'] = pd.to_datetime(df['tpep_pickup_datetime'], errors='coerce')
+/Users/zengjihong/Desktop/NUS/DSA5208/Project 1/neural_network_mpi/src/neural_network_mpi.py:252: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  df['dropoff_datetime'] = pd.to_datetime(df['tpep_dropoff_datetime'], errors='coerce')
+Using features: ['trip_duration', 'pickup_hour', 'passenger_count', 'trip_distance', 'RatecodeID', 'PULocationID', 'DOLocationID', 'payment_type', 'extra']
+After cleaning: 86464 rows
+Train set: (60524, 9), Test set: (25940, 9)
+Process 0: Distributed 60524 train and 25940 test samples to 4 processes
+Process 0: Initialized weights - w1: (9, 75), w2: (75, 1)
+
+Starting training:
+  Epochs: 50
+  Batch size: 64
+  Learning rate: 0.005
+  Hidden size: 75
+  Activation: sigmoid
+  Processes: 4
+Epoch   1/50: Loss=0.547939, Train RMSE=1.225416, Test RMSE=1.234391
+Epoch   6/50: Loss=0.735624, Train RMSE=1.219285, Test RMSE=1.228186
+Epoch  11/50: Loss=0.851330, Train RMSE=1.214374, Test RMSE=1.223215
+Epoch  16/50: Loss=0.570626, Train RMSE=1.207704, Test RMSE=1.216462
+Epoch  21/50: Loss=0.616397, Train RMSE=1.202637, Test RMSE=1.211329
+Epoch  26/50: Loss=0.793626, Train RMSE=1.198058, Test RMSE=1.206690
+Epoch  31/50: Loss=0.485596, Train RMSE=1.192449, Test RMSE=1.201001
+Epoch  36/50: Loss=0.562001, Train RMSE=1.188883, Test RMSE=1.197383
+Epoch  41/50: Loss=0.495266, Train RMSE=1.184384, Test RMSE=1.192821
+Epoch  46/50: Loss=0.503596, Train RMSE=1.179570, Test RMSE=1.187932
+Epoch  50/50: Loss=0.559917, Train RMSE=1.177151, Test RMSE=1.185479
+
+Training completed in 7.30 seconds
+
+============================================================
+TRAINING RESULTS
+============================================================
+Configuration:
+  Activation: sigmoid
+  Hidden size: 75
+  Batch size: 64
+  Learning rate: 0.005
+  Processes: 4
+
+Performance:
+  Train RMSE: 1.177151
+  Test RMSE: 1.185479
+  Training time: 7.30 seconds
+
+Results saved to: results/result_sigmoid_h75_b64_p4_20250916_100245.json

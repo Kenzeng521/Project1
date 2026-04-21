@@ -1,0 +1,25 @@
+============================================================
+Distributed Neural Network Training with MPI
+============================================================
+MPI Configuration: 4 processes
+Loading data from data/nytaxi2022.csv...
+/Users/zengjihong/Desktop/NUS/DSA5208/Project 1/neural_network_mpi/src/neural_network_mpi.py:273: DtypeWarning: Columns (6) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(file_path)
+Loaded 39656098 rows
+/Users/zengjihong/Desktop/NUS/DSA5208/Project 1/neural_network_mpi/src/neural_network_mpi.py:251: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  df['pickup_datetime'] = pd.to_datetime(df['tpep_pickup_datetime'], errors='coerce')
+/Users/zengjihong/Desktop/NUS/DSA5208/Project 1/neural_network_mpi/src/neural_network_mpi.py:252: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  df['dropoff_datetime'] = pd.to_datetime(df['tpep_dropoff_datetime'], errors='coerce')
+Using features: ['trip_duration', 'pickup_hour', 'passenger_count', 'trip_distance', 'RatecodeID', 'PULocationID', 'DOLocationID', 'payment_type', 'extra']
+After cleaning: 33650193 rows
+Train set: (23555135, 9), Test set: (10095058, 9)
+Process 0: Distributed 23555135 train and 10095058 test samples to 4 processes
+Process 0: Initialized weights - w1: (9, 150), w2: (150, 1)
+
+Starting training:
+  Epochs: 50
+  Batch size: 128
+  Learning rate: 0.005
+  Hidden size: 150
+  Activation: relu
+  Processes: 4

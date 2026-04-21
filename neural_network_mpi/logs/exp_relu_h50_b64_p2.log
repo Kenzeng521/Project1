@@ -1,0 +1,53 @@
+============================================================
+Distributed Neural Network Training with MPI
+============================================================
+MPI Configuration: 2 processes
+Loading data from data/nytaxi2022.csv...
+Loaded 100000 rows
+/Users/zengjihong/Desktop/NUS/DSA5208/Project 1/neural_network_mpi/src/neural_network_mpi.py:251: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  df['pickup_datetime'] = pd.to_datetime(df['tpep_pickup_datetime'], errors='coerce')
+/Users/zengjihong/Desktop/NUS/DSA5208/Project 1/neural_network_mpi/src/neural_network_mpi.py:252: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  df['dropoff_datetime'] = pd.to_datetime(df['tpep_dropoff_datetime'], errors='coerce')
+Using features: ['trip_duration', 'pickup_hour', 'passenger_count', 'trip_distance', 'RatecodeID', 'PULocationID', 'DOLocationID', 'payment_type', 'extra']
+After cleaning: 86464 rows
+Train set: (60524, 9), Test set: (25940, 9)
+Process 0: Distributed 60524 train and 25940 test samples to 2 processes
+Process 0: Initialized weights - w1: (9, 50), w2: (50, 1)
+
+Starting training:
+  Epochs: 50
+  Batch size: 64
+  Learning rate: 0.005
+  Hidden size: 50
+  Activation: relu
+  Processes: 2
+Epoch   1/50: Loss=1.400977, Train RMSE=1.974165, Test RMSE=1.987172
+Epoch   6/50: Loss=1.355085, Train RMSE=1.968955, Test RMSE=1.981686
+Epoch  11/50: Loss=1.366559, Train RMSE=1.963655, Test RMSE=1.976071
+Epoch  16/50: Loss=1.642862, Train RMSE=1.958815, Test RMSE=1.971030
+Epoch  21/50: Loss=1.251197, Train RMSE=1.953363, Test RMSE=1.965268
+Epoch  26/50: Loss=1.233865, Train RMSE=1.951864, Test RMSE=1.964249
+Epoch  31/50: Loss=1.524610, Train RMSE=1.945511, Test RMSE=1.957498
+Epoch  36/50: Loss=1.273848, Train RMSE=1.885014, Test RMSE=1.891810
+Epoch  41/50: Loss=1.595300, Train RMSE=1.878972, Test RMSE=1.885418
+Epoch  46/50: Loss=16.482435, Train RMSE=1.845048, Test RMSE=1.848650
+Epoch  50/50: Loss=1.481594, Train RMSE=1.840694, Test RMSE=1.844118
+
+Training completed in 1.68 seconds
+
+============================================================
+TRAINING RESULTS
+============================================================
+Configuration:
+  Activation: relu
+  Hidden size: 50
+  Batch size: 64
+  Learning rate: 0.005
+  Processes: 2
+
+Performance:
+  Train RMSE: 1.840694
+  Test RMSE: 1.844118
+  Training time: 1.68 seconds
+
+Results saved to: results/result_relu_h50_b64_p2_20250916_100437.json
